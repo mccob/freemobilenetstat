@@ -137,6 +137,20 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="20810" />
+                
+             <TextView
+                android:id="@+id/stat_mobile_network_lac_cellid_rnc"
+                style="@style/stat_row"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="LAC : 1 CID : 2 RNC : 3" />    
+                
+             <TextView
+                android:id="@+id/stat_mobile_network_band"
+                style="@style/stat_row"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="UMTS 900 MHz" />     
 
             <TextView
                 android:id="@+id/stat_on_orange"
