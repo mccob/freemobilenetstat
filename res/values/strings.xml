@@ -19,6 +19,8 @@
     <string name="service_monitor">Service de suivi de la connexion</string>
     <string name="stat_mobile_network">Réseau actuel</string>
     <string name="stat_mobile_code">MCC+MNC</string>
+	<string name="stat_mobile_network_lac_cellid">LAC - Cell ID</string>
+	<string name="stat_mobile_network_band">Bande</string>
     <string name="stat_screen">Écran allumé</string>
     <string name="stat_wifi">Wi-Fi actif</string>
     <string name="stat_battery">Batterie</string>

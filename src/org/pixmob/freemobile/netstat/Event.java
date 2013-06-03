@@ -33,6 +33,9 @@ public class Event {
     public String mobileOperator;
     public int batteryLevel;
     public boolean powerOn;
+	public int lac;
+	public int cellID;
+	public int band;
 
     /**
      * Read an {@link Event} instance from a database {@link Cursor}. The cursor
@@ -48,7 +51,11 @@ public class Event {
             mobileOperator = mobileOperator.intern();
         }
         batteryLevel = c.getInt(c.getColumnIndexOrThrow(Events.BATTERY_LEVEL));
-        powerOn = c.getInt(c.getColumnIndexOrThrow(Events.POWER_ON)) == 1;
+		powerOn = c.getInt(c.getColumnIndexOrThrow(Events.POWER_ON)) == 1;
+		
+		lac = c.getInt(c.getColumnIndexOrThrow(Events.LAC));
+		cellID = c.getInt(c.getColumnIndexOrThrow(Events.CELL_ID));
+		band = c.getInt(c.getColumnIndexOrThrow(Events.BAND));
     }
 
     /**
@@ -61,13 +68,16 @@ public class Event {
         values.put(Events.MOBILE_CONNECTED, mobileConnected ? 1 : 0);
         values.put(Events.MOBILE_OPERATOR, mobileOperator);
         values.put(Events.BATTERY_LEVEL, batteryLevel);
-        values.put(Events.POWER_ON, powerOn ? 1 : 0);
+		values.put(Events.POWER_ON, powerOn ? 1 : 0);
+		values.put(Events.LAC, lac);
+		values.put(Events.CELL_ID, cellID);
+		values.put(Events.BAND, band);
     }
 
     @Override
     public String toString() {
         return "Event[timestamp=" + DateFormat.format("dd/MM/yyyy hh:mm:ss", timestamp) + "; screen="
                 + screenOn + "; wifi=" + wifiConnected + "; mobile=" + mobileConnected + "; operator="
-                + mobileOperator + "; battery=" + batteryLevel + "; powerOn=" + powerOn + "]";
+                + mobileOperator + "; battery=" + batteryLevel + "; powerOn=" + powerOn + "; lac=" + lac + "; cellID=" + cellID + "; band=" + band + "]";
     }
 }

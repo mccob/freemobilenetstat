@@ -75,6 +75,8 @@ public class StatisticsFragment extends Fragment implements LoaderCallbacks<Stat
     private TextView onOrangeNetwork;
     private TextView statMobileNetwork;
     private TextView statMobileCode;
+	private TextView statMobileLACCellid;
+	private TextView statMobileBand;
     private TextView statScreenOn;
     private TextView statWifiOn;
     private TextView statOnOrange;
@@ -116,6 +118,8 @@ public class StatisticsFragment extends Fragment implements LoaderCallbacks<Stat
         onFreeMobileNetwork = (TextView) a.findViewById(R.id.on_free_mobile_network);
         statMobileNetwork = (TextView) a.findViewById(R.id.stat_mobile_network);
         statMobileCode = (TextView) a.findViewById(R.id.stat_mobile_code);
+		statMobileLACCellid = (TextView) a.findViewById(R.id.stat_mobile_network_lac_cellid);
+		statMobileBand = (TextView) a.findViewById(R.id.stat_mobile_network_band);
         statScreenOn = (TextView) a.findViewById(R.id.stat_screen);
         statWifiOn = (TextView) a.findViewById(R.id.stat_wifi);
         statOnOrange = (TextView) a.findViewById(R.id.stat_on_orange);

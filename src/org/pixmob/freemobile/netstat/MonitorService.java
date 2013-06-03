@@ -442,6 +442,31 @@ public class MonitorService extends Service implements OnSharedPreferenceChangeL
         e.mobileConnected = powerOn ? Boolean.TRUE.equals(lastMobileNetworkConnected) : false;
         e.mobileOperator = lastMobileOperatorId;
         e.powerOn = powerOn;
+		
+		CdmaCellLocation loc = (CdmaCellLocation)(phone.getCellLocation());
+        e.cellID = (loc != null) ? loc.getBaseStationId() : -1;
+		e.lac = (loc != null) ? loc.getLAC() : -1;
+		
+		if(lastMobileOperatorId.equals("Free"))
+		{
+			// Astuce qui permet de déterminer la bande utilisée par FM 
+			// Applicable qu'au réseau FM
+			// https://twitter.com/Dude_FR/status/341449260744712192
+			// https://twitter.com/Dude_FR/status/341450085307121665
+			// 65535 / 2 = 32767
+			if(e.cellID < 32768)
+			{
+				e.band = 1; // bande UMTS 1 2100 MHz
+			}else{
+				e.band = 8; // bande UMTS 8 900 Mhz
+			}
+		}else{
+			// Réseau Orange, on connait pas la bande
+			e.band = 0;
+		}
+		
+		updateEventDatabase
+		
 
         try {
             pendingInsert.put(e);
