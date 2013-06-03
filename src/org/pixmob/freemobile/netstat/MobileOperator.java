@@ -73,7 +73,7 @@ public enum MobileOperator {
                 || mccMnc.data[3] == '0' && mccMnc.data[4] == '2') {
             return ORANGE;
         }
-        if (mccMnc.data[3] == '1' && mccMnc.data[4] == '4' || mccMnc.data[3] == '1' && mccMnc.data[4] == '5') {
+        if (mccMnc.data[3] == '1' && mccMnc.data[4] == '5' || mccMnc.data[3] == '1' && mccMnc.data[4] == '6') {
             return FREE_MOBILE;
         }
         if (DEBUG) {
